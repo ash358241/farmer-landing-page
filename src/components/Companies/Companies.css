@@ -1,0 +1,42 @@
+.companies{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    place-items: center;
+}
+
+.companyOne > img{
+    width: 70%;
+}
+.companyTwo > img{
+    width: 70%;
+}
+.companyThree > img{
+    width: 70%;
+}
+.companyFour > img{
+    width: 70%;
+}
+.companyFive > img{
+    width: 70%;
+}
+.companySix > img{
+    width: 70%;
+}
+.companySeven > img{
+    width: 70%;
+}
+.companyEight > img{
+    width: 70%;
+}
+
+
+@media(max-width: 668px){
+.companies{
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    grid-gap: 20px;
+}
+}

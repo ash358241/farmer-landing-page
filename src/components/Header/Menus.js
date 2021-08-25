@@ -1,9 +1,28 @@
 import React from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
+import { motion } from "framer-motion";
+
+const menuVariant = {
+    hidden:{
+        y: -50
+    },
+    visible:{
+        y: 0,
+        transition:{
+            type: 'spring',
+            stiffness: 120,
+            // delay: .1
+        }
+    }
+}
 
 const Menus = () => {
     return (
-        <div>
+        <motion.div
+        variants={menuVariant}
+        initial="hidden"
+        animate="visible"
+        >
             <Navbar className="text-center mb-5" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">Spense</Navbar.Brand>
@@ -19,7 +38,7 @@ const Menus = () => {
                 </Navbar.Collapse>
             </Container>
             </Navbar>
-        </div>
+        </motion.div>
     );
 };
 

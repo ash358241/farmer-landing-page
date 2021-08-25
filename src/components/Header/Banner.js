@@ -5,17 +5,6 @@ import bannerImg from "../../Assets/Hero Image (Desktop).png";
 import { motion } from "framer-motion";
 import './Banner.css';
 
-const parentVariant = {
-    transition: {
-        type: 'spring',
-        mass: 0.4,
-        damping: 8, 
-        when: 'beforeChildren',
-        staggerChildren: 0.5   
-     }
-
-}
-
 const headerVariant = {
     hidden: {
         x: '-100vw'
@@ -25,7 +14,7 @@ const headerVariant = {
         transition: {
             type: 'spring',
             stiffness: 120,
-            delay: 0.5        }
+            delay: 0.3        }
     }
 }
 
@@ -38,7 +27,7 @@ const paragraphVariant = {
         transition: {
             type: 'spring',
             stiffness: 120,
-            delay: 0.5        }
+            delay: 0.3        }
     }
 }
 
@@ -51,7 +40,7 @@ const itemsVariant = {
         opacity: 1,
         y: 0,
         transition: {
-            delay: 1.5        
+            delay: 1        
         }
     }
 }
@@ -65,13 +54,23 @@ const btnVariants = {
     }
 }
 
+const imgVariant = {
+    hidden: {
+        scale: 1.1,
+    },
+    visible: {
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 900,
+        }
+    }
+}
+
 
 const Banner = () => {
     return (
-        <motion.div 
-        variants={parentVariant}
-        animate="transition"
-        className="banner mb-5">
+        <div className="banner mb-5">
            <Container>
            <div className="row d-flex align-items-center">
                 <div className="col-md-6 mb-3">
@@ -106,11 +105,15 @@ const Banner = () => {
                     </motion.div>
                 </div>
                 <div className="col-md-6">
-                    <img className="img" src={bannerImg} alt="" />
+                    <motion.img 
+                    variants={imgVariant}
+                    initial="hidden"
+                    animate="visible"
+                    className="img" src={bannerImg} alt="" />
                 </div>
             </div>
            </Container>
-        </motion.div>
+        </div>
     );
 };
 

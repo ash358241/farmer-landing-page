@@ -1,0 +1,19 @@
+.footer{
+    padding: 100px;
+    background-color: black;
+    color: #fff;
+}
+
+.footerDiv{
+    display: flex; 
+}
+
+.footerDiv p{
+    opacity: 0.6;
+}
+
+@media(max-width: 668px){
+    .footerDiv{
+        flex-wrap: wrap;
+    }
+}
