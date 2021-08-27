@@ -1,10 +1,20 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import editor from "../../Assets/Text Editor.png";
+import {motion, useTransform, useViewportScroll} from "framer-motion";
 
 const Editor = () => {
+    const { scrollYProgress } = useViewportScroll()
+    const scale = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
     return (
-        <div className="editor mb-5">
+        <motion.div
+        style={{ scale }}
+        >
+            <motion.div
+        style={{
+            scaleY: scrollYProgress
+          }}
+        className="editor mb-5">
             <Container>
                 <div className="row d-flex align-items-center justify-content-center">
                     <div className="col-md-6">
@@ -18,7 +28,8 @@ const Editor = () => {
                     </div>
                 </div>
             </Container>
-        </div>
+        </motion.div>
+        </motion.div>
     );
 };
 

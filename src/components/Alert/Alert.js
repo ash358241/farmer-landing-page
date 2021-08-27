@@ -1,6 +1,20 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import img from "../../Assets/Phone Mockup (Mobile).png";
+import {motion} from "framer-motion";
+
+const imgVariant = {
+    hidden: {
+        scale: 1,
+    },
+    show: {
+        scale: 1.1,
+        transition: {
+            yoyo: Infinity, 
+            duration: 1
+        }
+    }
+}
 
 const Alert = () => {
     return (
@@ -13,7 +27,11 @@ const Alert = () => {
                     <a href="https://www.google.com/">Learn More about Escrow</a>
                 </div>
                 <div className="col-md-6">
-                    <img style={{float: 'right'}} src={img} alt="" />
+                    <motion.img 
+                    variants={imgVariant}
+                    initial="hidden"
+                    animate="show"
+                    style={{float: 'right'}} src={img} alt="" />
                 </div>
             </div>
         </Container>
